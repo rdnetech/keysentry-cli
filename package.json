@@ -1,6 +1,6 @@
 {
   "name": "@keysentry/cli",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "KeySentry AI CLI — vault credentials and sign in to the KeySentry Gateway from your terminal",
   "bin": {
     "keysentry": "bin/keysentry.mjs"
