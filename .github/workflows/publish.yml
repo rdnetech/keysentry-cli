@@ -31,5 +31,5 @@ jobs:
           fi
       - name: Syntax check
         run: node --check bin/keysentry.mjs && node --check lib/sso.mjs
-      - name: Publish
-        run: npm publish --access public
+      - name: Stage the release (a maintainer approves it on npmjs.com with 2FA)
+        run: npm stage publish
