@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "KeySentry AI CLI — vault credentials and sign in to the KeySentry Gateway from your terminal",
   "bin": {
-    "keysentry": "./bin/keysentry.mjs"
+    "keysentry": "bin/keysentry.mjs"
   },
   "files": [
     "LICENSE",
