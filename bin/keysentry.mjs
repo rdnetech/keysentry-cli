@@ -5,7 +5,8 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, chmodSync } from "f
 import { join } from "path";
 import { tokenCommand } from "../lib/sso.mjs";
 
-const VERSION = "1.1.0";
+// Version comes from package.json, so a release only bumps it in one place.
+const VERSION = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8")).version;
 const API_BASE = "https://www.getkeysentry.com";
 const CONFIG_DIR = join(homedir(), ".keysentry");
 const CONFIG_FILE = join(CONFIG_DIR, "config.json");
