@@ -4,6 +4,7 @@ import { homedir } from "os";
 import { readFileSync, writeFileSync, existsSync, mkdirSync, chmodSync } from "fs";
 import { join } from "path";
 import { tokenCommand } from "../lib/sso.mjs";
+import { copilotKeyCommand } from "../lib/copilot.mjs";
 
 // Version comes from package.json, so a release only bumps it in one place.
 const VERSION = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8")).version;
@@ -269,6 +270,7 @@ function showHelp() {
     ${c.green("scan")}               Scan text for exposed credentials
     ${c.green("status")}             Show connection status
     ${c.green("token")}              Print a Gateway sign-in token (for Claude Code)
+    ${c.green("copilot-key")}        Get your personal Gateway key for GitHub Copilot
     ${c.green("help")}               Show this help
 
   ${c.bold("VAULT OPTIONS")}
@@ -286,6 +288,12 @@ function showHelp() {
     --client <id>      Application (client) ID from your Entra app
     --info             Show who is signed in (no token printed)
     --logout           Remove the saved sign-in
+
+  ${c.bold("COPILOT-KEY OPTIONS")}
+
+    --tenant <id> --client <id>   Same as token
+    --print            Print the saved key only (for Copilot CLI)
+    --forget           Remove the saved key from this computer
 
   ${c.bold("EXAMPLES")}
 
@@ -333,6 +341,7 @@ switch (cmd) {
   case "scan": case "s": await scan(args); break;
   case "status": await status(); break;
   case "token": process.exitCode = await tokenCommand(args); break;
+  case "copilot-key": process.exitCode = await copilotKeyCommand(args); break;
   case "help": case "--help": case "-h": case undefined: showHelp(); break;
   case "--version": case "-v": console.log(VERSION); break;
   default: console.log(c.red(`  Unknown command: ${cmd}`)); showHelp();
