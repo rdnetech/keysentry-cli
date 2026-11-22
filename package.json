@@ -1,0 +1,28 @@
+{
+  "name": "@keysentry/cli",
+  "version": "1.1.0",
+  "description": "KeySentry AI CLI — vault credentials and sign in to the KeySentry Gateway from your terminal",
+  "bin": {
+    "keysentry": "./bin/keysentry.mjs"
+  },
+  "files": [
+    "LICENSE",
+    "bin/",
+    "lib/",
+    "README.md"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdnetech/keysentry-cli.git"
+  },
+  "keywords": ["keysentry", "credentials", "api-keys", "vault", "security", "gateway", "entra", "claude-code"]
+}
